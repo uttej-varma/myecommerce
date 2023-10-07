@@ -1,4 +1,5 @@
 import { Fragment } from "react";
+import { Link } from "react-router-dom";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import {
   Bars3Icon,
@@ -64,6 +65,7 @@ export default function Navbar({ children }) {
                   </div>
                   <div className="hidden md:block">
                     <div className="ml-4 flex items-center md:ml-6">
+                      <Link to='/cart'>
                       <button
                         type="button"
                         className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
@@ -74,6 +76,7 @@ export default function Navbar({ children }) {
                           aria-hidden="true"
                         />
                       </button>
+                      </Link>
                       <span className="inline-flex items-center rounded-md bg-yellow-50 mb-7 -ml-4 z-10 px-2 py-1 text-xs font-medium text-yellow-800 ring-1 ring-inset ring-yellow-600/20">
                           3
                         </span>
@@ -178,16 +181,21 @@ export default function Navbar({ children }) {
                         {user.email}
                       </div>
                     </div>
+                    <Link to='/cart'>
                     <button
                       type="button"
                       className="relative ml-auto flex-shrink-0 rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                     >
                       <span className="absolute -inset-1.5" />
-                      <ShoppingCartIcon
-                        className="h-6 w-6"
-                        aria-hidden="true"
-                      />
+                      
+                        <ShoppingCartIcon
+                          className="h-6 w-6"
+                          aria-hidden="true"
+                        />
+                       
                     </button>
+                    </Link>
+                    
                     <span className="inline-flex items-center rounded-md bg-yellow-50 mb-7 -ml-4 z-10   px-2 py-1 text-xs font-medium text-yellow-800 ring-1 ring-inset ring-yellow-600/20">
                         3
                       </span>
