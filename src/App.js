@@ -11,7 +11,7 @@ import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SiognupPage';
 import CartPage from './pages/CartPage';
 import Checkout from './pages/Checkout';
-import ProductDetails from './features/product-list/ProductDetail';
+import ProductDetailsPage from './pages/ProductDetailsPage';
 
 const router = createBrowserRouter([
   {
@@ -36,7 +36,7 @@ const router = createBrowserRouter([
   },
   {
     path:'/productDetails',
-    element:<ProductDetails></ProductDetails>
+    element:<ProductDetailsPage></ProductDetailsPage>
   }
 ]);
 
