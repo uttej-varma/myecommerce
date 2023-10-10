@@ -2,7 +2,7 @@
 export function fetchAllProducts(amount = 1) {
   return new Promise(async (resolve) =>{
     //ToDo:We will not hard code the URL
-    const response=await fetch('http://localhost:5000/products');
+    const response=await fetch('http://localhost:3004/products');
     const data=await response.json();
     resolve({data});
     
@@ -10,23 +10,26 @@ export function fetchAllProducts(amount = 1) {
   );
 }
 
-export function fetchProductsByFilter(filter) {
+export function fetchProductsByFilter({filter,sort}) {
   //filter ={'category':smartphone}
+  //filtertobedone={'category}:['smartphone','laptop']
+  //sort={_sort:"price",_order=desc}
   console.log(filter)
   let queryString='';
   for(let key in filter){
-   if(key!=='_sort' && key!=='_order')
-   {
-    queryString+=`${key}_like=${filter[key]}&`
-   }
-   else{
-    queryString+=`${key}=${filter[key]}&`
-   }
+    const categoryValues=filter[key];
+    if(categoryValues.length){
+      const lastCategoryValue=categoryValues[categoryValues.length-1];
+      queryString+=`${key}_like=${lastCategoryValue}&`
+    }
+  }
+  for(let key in sort){
+      queryString+=`${key}=${filter[key]}&`
   }
   console.log(queryString)
   return new Promise(async (resolve) =>{
     //ToDo:We will not hard code the URL
-    const response=await fetch(`http://localhost:5000/products?${queryString}`);
+    const response=await fetch(`http://localhost:3004/products?${queryString}`);
     const data=await response.json();
     resolve({data});
     
