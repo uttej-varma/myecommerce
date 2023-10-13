@@ -42,7 +42,7 @@ export function fetchProductsByFilter({filter,sort,pagination}) {
   );
 }
 
-export function fetchCategories(amount = 1) {
+export function fetchCategories() {
   return new Promise(async (resolve) =>{
     //ToDo:We will not hard code the URL
     const response=await fetch('http://localhost:3004/categories');
@@ -53,7 +53,7 @@ export function fetchCategories(amount = 1) {
   );
 }
 
-export function fetchBrands(amount = 1) {
+export function fetchBrands() {
   return new Promise(async (resolve) =>{
     //ToDo:We will not hard code the URL
     const response=await fetch('http://localhost:3004/brands');
@@ -62,4 +62,12 @@ export function fetchBrands(amount = 1) {
     
   }
   );
+}
+
+export function fetchProductById(id){
+  return new Promise(async (resolve)=>{
+    const response=await fetch('http://localhost:3004/products/'+id);
+    const data=await response.json();
+    resolve({data})
+  })
 }
