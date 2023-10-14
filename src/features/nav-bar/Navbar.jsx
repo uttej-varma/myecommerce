@@ -6,7 +6,8 @@ import {
   ShoppingCartIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
-
+import { useSelector } from "react-redux";
+import { selectItems } from "../cart/cartSlice";
 const user = {
   name: "Tom Cook",
   email: "tom@example.com",
@@ -27,6 +28,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 export default function Navbar({ children }) {
+  const cartCount=useSelector(selectItems)
   return (
     <>
       <div className="min-h-full">
@@ -80,7 +82,7 @@ export default function Navbar({ children }) {
                       </button>
                       </Link>
                       <span className="inline-flex items-center rounded-md bg-yellow-50 mb-7 -ml-4 z-10 px-2 py-1 text-xs font-medium text-yellow-800 ring-1 ring-inset ring-yellow-600/20">
-                          3
+                          {cartCount.length>0 && cartCount.length || 0}
                         </span>
 
                       {/* Profile dropdown */}
@@ -199,7 +201,7 @@ export default function Navbar({ children }) {
                     </Link>
                     
                     <span className="inline-flex items-center rounded-md bg-yellow-50 mb-7 -ml-4 z-10   px-2 py-1 text-xs font-medium text-yellow-800 ring-1 ring-inset ring-yellow-600/20">
-                        3
+                    {cartCount.length>0 && cartCount.length || 0}
                       </span>
                   </div>
                   <div className="mt-3 space-y-1 px-2">

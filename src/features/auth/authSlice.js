@@ -38,7 +38,6 @@ export const authReducer = createSlice({
       .addCase(userRegistrationAsync.fulfilled, (state, action) => {
         state.status = 'idle';
         state.loggedInUser = action.payload;
-        console.log(initialState,state.loggedInUser)
       })
       .addCase(checkUserAsync.pending, (state) => {
         state.status = 'loading';
@@ -51,7 +50,6 @@ export const authReducer = createSlice({
       .addCase(checkUserAsync.rejected, (state, action) => {
         state.status = 'idle';
         state.error = action.error;
-        console.log(state,state.error);
       });
   },
 });

@@ -3,11 +3,9 @@ export const createUser=(userData)=>{
     const response=await fetch('http://localhost:3004/users',{
       method:'POST',
       body:JSON.stringify(userData),
-      headers:{'content-type':'application-json'}
+      headers:{'content-type':'application/ajson'}
     })
-    console.log(userData);
     const data=await response.json();
-    console.log(data);
     resolve({data});
   })
 }
@@ -15,9 +13,7 @@ export const createUser=(userData)=>{
 export const checkUser=(loginInfo)=>{
   return new Promise(async(resolve,reject)=>{
     const response=await fetch(`http://localhost:3004/users?email=${loginInfo.email}`)
-    console.log(loginInfo);
     const data=await response.json();
-    console.log(data);
     if(data.length){
       if(loginInfo.password===data[0].password){
         resolve({data:data[0]});

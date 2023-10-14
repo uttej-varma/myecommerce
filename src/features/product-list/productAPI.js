@@ -15,7 +15,6 @@ export function fetchProductsByFilter({filter,sort,pagination}) {
   //filtertobedone={'category}:['smartphone','laptop']
   //sort={_sort:"price",_order=desc}
   //pagination={_page:1,_limit:10}  //_page=1&_limit=10
-  console.log(filter)
   let queryString='';
   for(let key in filter){
     const categoryValues=filter[key];
