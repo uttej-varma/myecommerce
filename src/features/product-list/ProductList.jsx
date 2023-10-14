@@ -96,7 +96,7 @@ export default function ProductList() {
   const categories=useSelector(selectAllCategories);
   const brands=useSelector(selectAllBrands);
   const totalItems=useSelector(allItems)
- 
+  console.log(products,categories)
   const [filter, setFilter] = useState({});
  
   const filters = [
