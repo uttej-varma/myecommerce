@@ -17,6 +17,8 @@ import ProductDetailsPage from './pages/ProductDetailsPage';
 import Protected from './features/auth/components/Protected';
 import { selectLoggedInUser } from './features/auth/authSlice';
 import { fetctItemsByUserIdAsync } from './features/cart/cartSlice';
+import { PageNotFound } from './pages/404';
+import { OrderSuccessPage } from './pages/OrderSuccessPage';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -41,6 +43,14 @@ const router = createBrowserRouter([
   {
     path:'/productDetails/:id',
     element:<Protected><ProductDetailsPage></ProductDetailsPage></Protected>
+  },
+  {
+    path:'/order-successfull/:id',
+    element:<OrderSuccessPage></OrderSuccessPage>
+  },
+  {
+    path:'*',
+    element:<PageNotFound></PageNotFound>
   }
 ]);
 
