@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { selectItems,updateItemsAsync,deleteItemFromCartAsync } from "./cartSlice";
 import { Dialog, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
+import { Navigate } from "react-router-dom";
 
 export default function Cart() {
   const dispatch = useDispatch();
@@ -19,6 +20,7 @@ export default function Cart() {
   }
   return (
     <>
+    {items.length===0 && <Navigate to='/' replace={true}></Navigate>}
       <div>
         <div className="mx-auto mt-12 bg-white max-w-7xl px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl font-bold tracking-tight text-gray-900">
