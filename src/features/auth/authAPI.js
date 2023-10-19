@@ -29,14 +29,11 @@ export const checkUser=(loginInfo)=>{
   })
 }
 
-export const updateUser=(update)=>{
-  return new Promise(async(resolve)=>{
-    const response=await fetch('http://localhost:3004/users/'+update.id,{
-      method:'PATCH',
-      body:JSON.stringify(update),
-      headers:{'content-type':'application/json'}
-    })
-    const data=await response.json();
-    resolve({data});
+export function signOut(){
+ return new Promise(async(resolve)=>{
+    //To do : remove the session in the backend once server is done.
+    resolve({data:'success'})
   })
+
 }
+

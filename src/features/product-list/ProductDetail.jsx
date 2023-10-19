@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectProductById,fetchProductByIdAsync } from './productSlice';
 import { useParams } from 'react-router-dom';
 import { addToCartAsync } from '../cart/cartSlice';
-import {selectLoggedInUser} from '../auth/authSlice';
+import { selectUserInfo } from '../user/userSlice';
 const colors=[
   { name: 'White', class: 'bg-white', selectedClass: 'ring-gray-400' },
   { name: 'Gray', class: 'bg-gray-200', selectedClass: 'ring-gray-400' },
@@ -34,7 +34,7 @@ function classNames(...classes) {
 export default function ProductDetails(){
     const [selectedColor, setSelectedColor] = useState(colors)
     const [selectedSize, setSelectedSize] = useState(sizes)
-    const user=useSelector(selectLoggedInUser)
+    const user=useSelector(selectUserInfo)
     const product=useSelector(selectProductById)
     const dispatch=useDispatch();
     const params=useParams()
