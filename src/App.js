@@ -19,6 +19,11 @@ import { selectLoggedInUser } from './features/auth/authSlice';
 import { fetctItemsByUserIdAsync } from './features/cart/cartSlice';
 import { PageNotFound } from './pages/404';
 import { OrderSuccessPage } from './pages/OrderSuccessPage';
+import UserOrderPage from './pages/UserOrderPage';
+import UserProfilePage from './pages/UserProfilePage';
+import { fetchLoggedInUserAsync } from './features/user/userSlice';
+import LogOut from './features/auth/components/LogOut';
+import ForgetPassword from './features/auth/components/ForgetPassword';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -27,6 +32,10 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <LoginPage></LoginPage>,
+  },
+  {
+    path: "/logout",
+    element: <LogOut></LogOut>,
   },
   {
     path:"/signup",
@@ -46,7 +55,19 @@ const router = createBrowserRouter([
   },
   {
     path:'/order-successfull/:id',
-    element:<OrderSuccessPage></OrderSuccessPage>
+    element:<Protected><OrderSuccessPage></OrderSuccessPage></Protected>
+  },
+  {
+    path:'/orders',
+    element:<Protected><UserOrderPage></UserOrderPage></Protected>
+  },
+  {
+    path:'/profile',
+    element:<Protected><UserProfilePage></UserProfilePage></Protected>
+  },
+  {
+    path:'/forgetPassword',
+    element:<ForgetPassword></ForgetPassword>
   },
   {
     path:'*',
@@ -60,6 +81,7 @@ function App() {
   useEffect(()=>{
     if(user){
       dispatch(fetctItemsByUserIdAsync(user.id))
+      dispatch(fetchLoggedInUserAsync(user.id))
     }
   },[dispatch,user])
   return (

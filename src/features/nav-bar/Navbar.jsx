@@ -6,7 +6,7 @@ import {
   ShoppingCartIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
-import { useSelector } from "react-redux";
+import { useSelector,useDispatch } from "react-redux";
 import { selectItems } from "../cart/cartSlice";
 const user = {
   name: "Tom Cook",
@@ -19,16 +19,19 @@ const navigation = [
   { name: "Team", href: "#", current: false },
 ];
 const userNavigation = [
-  { name: "Your Profile", href: "#" },
-  { name: "Settings", href: "#" },
-  { name: "Sign out", link: "/login" },
+  { name: "My Profile", link: "/profile" },
+  { name: "My Orders", link: "/orders" },
+  { name: "Sign out", link: "/logout" },
 ];
+
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 export default function Navbar({ children }) {
   const cartCount=useSelector(selectItems)
+  const dispatch=useDispatch()
+  
   return (
     <>
       <div className="min-h-full">
@@ -109,7 +112,10 @@ export default function Navbar({ children }) {
                         >
                           <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                             {userNavigation.map((item) => (
-                              <Menu.Item key={item.name}>
+                              <div key={item.name}
+                              >
+                                <Menu.Item 
+                              >
                                 {({ active }) => (
                                   <Link
                                   to={item.link}
@@ -122,6 +128,7 @@ export default function Navbar({ children }) {
                                   </Link>
                                 )}
                               </Menu.Item>
+                              </div>
                             ))}
                           </Menu.Items>
                         </Transition>

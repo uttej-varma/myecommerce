@@ -9,7 +9,6 @@ import {
 import { Navigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import {
-  selectLoggedInUser,
   updateUserAsync,
 } from "../features/auth/authSlice";
 
@@ -17,9 +16,10 @@ import {
   createOrderAsync,
   selectCurrentOrder,
 } from "../features/order/orderSlice";
+import { selectUserInfo } from "../features/user/userSlice";
 export default function Checkout() {
   const dispatch = useDispatch();
-  const user = useSelector(selectLoggedInUser);
+  const user = useSelector(selectUserInfo);
   const currentOrder = useSelector(selectCurrentOrder);
   const [open, setOpen] = useState(true);
   const [selectedAddress, setSelectedAddress] = useState(null);

@@ -1,11 +1,11 @@
 import { Link,Navigate,useParams } from "react-router-dom"
 import { useSelector,useDispatch } from "react-redux"
 import { resetCartAsync,cartReset } from "../features/cart/cartSlice"
-import { selectLoggedInUser } from "../features/auth/authSlice"
 import { useEffect } from "react"
+import { selectUserInfo } from "../features/user/userSlice"
 export function OrderSuccessPage(){
     const params=useParams()
-    const user = useSelector(selectLoggedInUser)
+    const user = useSelector(selectUserInfo)
     
     const dispatch=useDispatch()
     useEffect(()=>{
