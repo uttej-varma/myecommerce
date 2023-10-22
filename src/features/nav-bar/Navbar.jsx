@@ -8,15 +8,13 @@ import {
 } from "@heroicons/react/24/outline";
 import { useSelector,useDispatch } from "react-redux";
 import { selectItems } from "../cart/cartSlice";
-const user = {
-  name: "Tom Cook",
-  email: "tom@example.com",
-  imageUrl:
-    "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-};
+import { selectUserInfo } from "../user/userSlice";
+import { selectLoggedInUser } from "../auth/authSlice";
 const navigation = [
-  { name: "Dashboard", href: "#", current: true },
-  { name: "Team", href: "#", current: false },
+  { name: "Dashboard", link: "#", user: true },
+  { name: "Team", link: "#", user: true },
+  {name:"Admin",link:"/admin",admin:true},
+  {name:"AdminOrders",link:"/admin/orders",admin:true}
 ];
 const userNavigation = [
   { name: "My Profile", link: "/profile" },
@@ -31,6 +29,8 @@ function classNames(...classes) {
 export default function Navbar({ children }) {
   const cartCount=useSelector(selectItems)
   const dispatch=useDispatch()
+  const user=useSelector(selectLoggedInUser);
+  console.log('%%%%%%%',user)
   
   return (
     <>
@@ -53,9 +53,10 @@ export default function Navbar({ children }) {
                     <div className="hidden md:block">
                       <div className="ml-10 flex items-baseline space-x-4">
                         {navigation.map((item) => (
-                          <a
+                          item[user.role]?(
+                            <Link
                             key={item.name}
-                            href={item.href}
+                            to={item.link}
                             className={classNames(
                               item.current
                                 ? "bg-gray-900 text-white"
@@ -65,7 +66,11 @@ export default function Navbar({ children }) {
                             aria-current={item.current ? "page" : undefined}
                           >
                             {item.name}
-                          </a>
+                          </Link>
+                          
+                            
+                          ):null
+                            
                         ))}
                       </div>
                     </div>
@@ -85,7 +90,7 @@ export default function Navbar({ children }) {
                       </button>
                       </Link>
                       <span className="inline-flex items-center rounded-md bg-yellow-50 mb-7 -ml-4 z-10 px-2 py-1 text-xs font-medium text-yellow-800 ring-1 ring-inset ring-yellow-600/20">
-                          {cartCount.length>0 && cartCount.length || 0}
+                          {(cartCount.length>0 && cartCount.length) || 0}
                         </span>
 
                       {/* Profile dropdown */}

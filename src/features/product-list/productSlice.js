@@ -3,7 +3,9 @@ import { fetchAllProducts,
   fetchProductsByFilter,
   fetchCategories,
   fetchBrands,
-  fetchProductById } from './productAPI';
+  fetchProductById,
+  createProduct,
+  updateProductById } from './productAPI';
 
 const initialState = {
   products: [],
@@ -49,12 +51,26 @@ export const fetchProductByIdAsync = createAsyncThunk(
     return response.data;
   }
 );
+export const addNewProductAsync = createAsyncThunk(
+  'product/createProduct',
+  async (product) => {
+    const response = await createProduct(product);
+    return response.data;
+  }
+);
+export const updateProductByIdAsync = createAsyncThunk(
+  'product/updateProductById',
+  async (product) => {
+    const response = await updateProductById(product);
+    return response.data;
+  }
+);
 export const productSlice = createSlice({
   name: 'counter',
   initialState,
   reducers: {
-    increment: (state) => {
-      state.value += 1;
+    clearSelectedProduct: (state) => {
+      state.selectedProduct =null;
     }
   },
   extraReducers: (builder) => {
@@ -94,12 +110,27 @@ export const productSlice = createSlice({
       .addCase(fetchProductByIdAsync.fulfilled, (state, action) => {
         state.status = 'idle';
         state.selectedProduct = action.payload;
+      })
+      .addCase(addNewProductAsync.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase(addNewProductAsync.fulfilled, (state, action) => {
+        state.status = 'idle';
+        state.products.push(action.payload);
+      })
+      .addCase(updateProductByIdAsync.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase(updateProductByIdAsync.fulfilled, (state, action) => {
+        state.status = 'idle';
+        const index=state.products.findIndex((product)=>product.id===action.payload.id)
+        state.products[index]=action.payload;
       });
 
   },
 });
 
-export const { increment, decrement } = productSlice.actions;
+export const { clearSelectedProduct } = productSlice.actions;
 
 export const selectAllProducts = (state) => state.product.products;
 export const selectAllBrands=(state)=>state.product.brands;
