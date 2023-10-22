@@ -46,12 +46,17 @@ export default function UserProfile() {
           <h3 className="text-1xl font-bold tracking-tight text-red-600">
             email Address:{user.email ? user.email : ""}
           </h3>
+          {user.role==="admin" &&
+            <h3 className="text-1xl font-bold tracking-tight text-red-600">
+            role:{user.role}
+          </h3>
+          }
           <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
             <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
             <p className="mt-1 truncate text-xs leading-5 text-gray-500">
                             <button
                               type="button"
-                              className="font-medium text-white bg-green-600 "
+                              className="font-medium px-3 py-1 text-white bg-green-600 br"
                             >
                               Add address
                             </button>
