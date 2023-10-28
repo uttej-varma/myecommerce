@@ -24,7 +24,7 @@
       "id": 2,
       "title": "iPhone X",
       "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
-      "price": 745,
+      "price": 700,
       "discountPercentage": 17.94,
       "rating": 4.44,
       "stock": 34,
@@ -2477,7 +2477,7 @@
       ],
       "totalAmount": 1448,
       "totalItems": 2,
-      "status": "pending",
+      "status": "delivered",
       "id": 1
     },
     {
@@ -2572,7 +2572,7 @@
       ],
       "totalAmount": 1448,
       "totalItems": 2,
-      "status": "pending",
+      "status": "cancelled",
       "id": 2
     },
     {
@@ -2634,7 +2634,7 @@
       ],
       "totalAmount": 1497,
       "totalItems": 3,
-      "status": "pending",
+      "status": "delivered",
       "id": 3
     },
     {
@@ -2691,6 +2691,508 @@
       "totalItems": 1,
       "status": "pending",
       "id": 4
+    },
+    {
+      "selectedAddress": {
+        "name": "Dantuluri uttejvarma ",
+        "gmail": "uttej2233@gmail.com",
+        "phone": "8985043923",
+        "street": "3-130, ASR Nagar-1, jammunarayanapuran, Vizianagaram",
+        "city": "Vizianagaram",
+        "state": "Andhra Pradesh",
+        "pincode": "535003"
+      },
+      "paymentMethod": "cash",
+      "user": {
+        "id": 1,
+        "email": "uttej2233@gmail.com",
+        "password": "Uttej2233",
+        "addresses": [
+          {
+            "name": "Dantuluri uttejvarma ",
+            "gmail": "uttej2233@gmail.com",
+            "phone": "8985043923",
+            "street": "3-130, ASR Nagar-1, jammunarayanapuran, Vizianagaram",
+            "city": "Vizianagaram",
+            "state": "Andhra Pradesh",
+            "pincode": "535003"
+          }
+        ],
+        "role": "user"
+      },
+      "items": [
+        {
+          "title": "iPhone X",
+          "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
+          "price": 745,
+          "discountPercentage": 17.94,
+          "rating": 4.44,
+          "stock": 34,
+          "brand": "Apple",
+          "category": "smartphones",
+          "thumbnail": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/2/1.jpg",
+            "https://i.dummyjson.com/data/products/2/2.jpg",
+            "https://i.dummyjson.com/data/products/2/3.jpg",
+            "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
+          ],
+          "discount": 17.94,
+          "quantity": 3,
+          "user": 1,
+          "id": 2
+        }
+      ],
+      "totalAmount": 1833,
+      "totalItems": 3,
+      "status": "pending",
+      "id": 5
+    },
+    {
+      "selectedAddress": {
+        "name": "Dantuluri uttejvarma ",
+        "gmail": "uttej2233@gmail.com",
+        "phone": "8985043923",
+        "street": "3-130, ASR Nagar-1, jammunarayanapuran, Vizianagaram",
+        "city": "Vizianagaram",
+        "state": "Andhra Pradesh",
+        "pincode": "535003"
+      },
+      "paymentMethod": "cash",
+      "user": {
+        "id": 1,
+        "email": "uttej2233@gmail.com",
+        "password": "Uttej2233",
+        "addresses": [
+          {
+            "name": "Dantuluri uttejvarma ",
+            "gmail": "uttej2233@gmail.com",
+            "phone": "8985043923",
+            "street": "3-130, ASR Nagar-1, jammunarayanapuran, Vizianagaram",
+            "city": "Vizianagaram",
+            "state": "Andhra Pradesh",
+            "pincode": "535003"
+          }
+        ],
+        "role": "user"
+      },
+      "items": [
+        {
+          "title": "iPhone X",
+          "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
+          "price": 745,
+          "discountPercentage": 17.94,
+          "rating": 4.44,
+          "stock": 34,
+          "brand": "Apple",
+          "category": "smartphones",
+          "thumbnail": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/2/1.jpg",
+            "https://i.dummyjson.com/data/products/2/2.jpg",
+            "https://i.dummyjson.com/data/products/2/3.jpg",
+            "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
+          ],
+          "discount": 17.94,
+          "quantity": 3,
+          "user": 1,
+          "id": 2
+        }
+      ],
+      "totalAmount": 1833,
+      "totalItems": 3,
+      "status": "pending",
+      "id": 6
+    },
+    {
+      "selectedAddress": {
+        "name": "Dantuluri uttejvarma ",
+        "gmail": "uttej2233@gmail.com",
+        "phone": "8985043923",
+        "street": "3-130, ASR Nagar-1, jammunarayanapuran, Vizianagaram",
+        "city": "Vizianagaram",
+        "state": "Andhra Pradesh",
+        "pincode": "535003"
+      },
+      "paymentMethod": "cash",
+      "user": {
+        "id": 1,
+        "email": "uttej2233@gmail.com",
+        "password": "Uttej2233",
+        "addresses": [
+          {
+            "name": "Dantuluri uttejvarma ",
+            "gmail": "uttej2233@gmail.com",
+            "phone": "8985043923",
+            "street": "3-130, ASR Nagar-1, jammunarayanapuran, Vizianagaram",
+            "city": "Vizianagaram",
+            "state": "Andhra Pradesh",
+            "pincode": "535003"
+          }
+        ],
+        "role": "user"
+      },
+      "items": [
+        {
+          "title": "iPhone X",
+          "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
+          "price": 745,
+          "discountPercentage": 17.94,
+          "rating": 4.44,
+          "stock": 34,
+          "brand": "Apple",
+          "category": "smartphones",
+          "thumbnail": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/2/1.jpg",
+            "https://i.dummyjson.com/data/products/2/2.jpg",
+            "https://i.dummyjson.com/data/products/2/3.jpg",
+            "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
+          ],
+          "discount": 17.94,
+          "quantity": 3,
+          "user": 1,
+          "id": 2
+        }
+      ],
+      "totalAmount": 1833,
+      "totalItems": 3,
+      "status": "pending",
+      "id": 7
+    },
+    {
+      "selectedAddress": {
+        "name": "Dantuluri uttejvarma ",
+        "gmail": "uttej2233@gmail.com",
+        "phone": "8985043923",
+        "street": "3-130, ASR Nagar-1, jammunarayanapuran, Vizianagaram",
+        "city": "Vizianagaram",
+        "state": "Andhra Pradesh",
+        "pincode": "535003"
+      },
+      "paymentMethod": "cash",
+      "user": {
+        "id": 1,
+        "email": "uttej2233@gmail.com",
+        "password": "Uttej2233",
+        "addresses": [
+          {
+            "name": "Dantuluri uttejvarma ",
+            "gmail": "uttej2233@gmail.com",
+            "phone": "8985043923",
+            "street": "3-130, ASR Nagar-1, jammunarayanapuran, Vizianagaram",
+            "city": "Vizianagaram",
+            "state": "Andhra Pradesh",
+            "pincode": "535003"
+          }
+        ],
+        "role": "user"
+      },
+      "items": [
+        {
+          "title": "iPhone X",
+          "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
+          "price": 745,
+          "discountPercentage": 17.94,
+          "rating": 4.44,
+          "stock": 34,
+          "brand": "Apple",
+          "category": "smartphones",
+          "thumbnail": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/2/1.jpg",
+            "https://i.dummyjson.com/data/products/2/2.jpg",
+            "https://i.dummyjson.com/data/products/2/3.jpg",
+            "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
+          ],
+          "discount": 17.94,
+          "quantity": 3,
+          "user": 1,
+          "id": 2
+        }
+      ],
+      "totalAmount": 1833,
+      "totalItems": 3,
+      "status": "pending",
+      "id": 8
+    },
+    {
+      "selectedAddress": {
+        "name": "Dantuluri uttejvarma ",
+        "gmail": "uttej2233@gmail.com",
+        "phone": "8985043923",
+        "street": "3-130, ASR Nagar-1, jammunarayanapuran, Vizianagaram",
+        "city": "Vizianagaram",
+        "state": "Andhra Pradesh",
+        "pincode": "535003"
+      },
+      "paymentMethod": "cash",
+      "user": {
+        "id": 1,
+        "email": "uttej2233@gmail.com",
+        "password": "Uttej2233",
+        "addresses": [
+          {
+            "name": "Dantuluri uttejvarma ",
+            "gmail": "uttej2233@gmail.com",
+            "phone": "8985043923",
+            "street": "3-130, ASR Nagar-1, jammunarayanapuran, Vizianagaram",
+            "city": "Vizianagaram",
+            "state": "Andhra Pradesh",
+            "pincode": "535003"
+          }
+        ],
+        "role": "user"
+      },
+      "items": [
+        {
+          "title": "iPhone X",
+          "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
+          "price": 745,
+          "discountPercentage": 17.94,
+          "rating": 4.44,
+          "stock": 34,
+          "brand": "Apple",
+          "category": "smartphones",
+          "thumbnail": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/2/1.jpg",
+            "https://i.dummyjson.com/data/products/2/2.jpg",
+            "https://i.dummyjson.com/data/products/2/3.jpg",
+            "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
+          ],
+          "discount": 17.94,
+          "quantity": 3,
+          "user": 1,
+          "id": 2
+        }
+      ],
+      "totalAmount": 1833,
+      "totalItems": 3,
+      "status": "pending",
+      "id": 9
+    },
+    {
+      "selectedAddress": {
+        "name": "Dantuluri uttejvarma ",
+        "gmail": "uttej2233@gmail.com",
+        "phone": "8985043923",
+        "street": "3-130, ASR Nagar-1, jammunarayanapuran, Vizianagaram",
+        "city": "Vizianagaram",
+        "state": "Andhra Pradesh",
+        "pincode": "535003"
+      },
+      "paymentMethod": "cash",
+      "user": {
+        "id": 1,
+        "email": "uttej2233@gmail.com",
+        "password": "Uttej2233",
+        "addresses": [
+          {
+            "name": "Dantuluri uttejvarma ",
+            "gmail": "uttej2233@gmail.com",
+            "phone": "8985043923",
+            "street": "3-130, ASR Nagar-1, jammunarayanapuran, Vizianagaram",
+            "city": "Vizianagaram",
+            "state": "Andhra Pradesh",
+            "pincode": "535003"
+          }
+        ],
+        "role": "user"
+      },
+      "items": [
+        {
+          "title": "iPhone X",
+          "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
+          "price": 745,
+          "discountPercentage": 17.94,
+          "rating": 4.44,
+          "stock": 34,
+          "brand": "Apple",
+          "category": "smartphones",
+          "thumbnail": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/2/1.jpg",
+            "https://i.dummyjson.com/data/products/2/2.jpg",
+            "https://i.dummyjson.com/data/products/2/3.jpg",
+            "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
+          ],
+          "discount": 17.94,
+          "quantity": 3,
+          "user": 1,
+          "id": 2
+        }
+      ],
+      "totalAmount": 1833,
+      "totalItems": 3,
+      "status": "cancelled",
+      "id": 10
+    },
+    {
+      "selectedAddress": {
+        "name": "Dantuluri uttejvarma ",
+        "gmail": "uttej2233@gmail.com",
+        "phone": "8985043923",
+        "street": "3-130, ASR Nagar-1, jammunarayanapuran, Vizianagaram",
+        "city": "Vizianagaram",
+        "state": "Andhra Pradesh",
+        "pincode": "535003"
+      },
+      "paymentMethod": "cash",
+      "user": {
+        "id": 1,
+        "email": "uttej2233@gmail.com",
+        "password": "Uttej2233",
+        "addresses": [
+          {
+            "name": "Dantuluri uttejvarma ",
+            "gmail": "uttej2233@gmail.com",
+            "phone": "8985043923",
+            "street": "3-130, ASR Nagar-1, jammunarayanapuran, Vizianagaram",
+            "city": "Vizianagaram",
+            "state": "Andhra Pradesh",
+            "pincode": "535003"
+          }
+        ],
+        "role": "user"
+      },
+      "items": [
+        {
+          "title": "iPhone X",
+          "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
+          "price": 745,
+          "discountPercentage": 17.94,
+          "rating": 4.44,
+          "stock": 34,
+          "brand": "Apple",
+          "category": "smartphones",
+          "thumbnail": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/2/1.jpg",
+            "https://i.dummyjson.com/data/products/2/2.jpg",
+            "https://i.dummyjson.com/data/products/2/3.jpg",
+            "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
+          ],
+          "discount": 17.94,
+          "quantity": 3,
+          "user": 1,
+          "id": 2
+        }
+      ],
+      "totalAmount": 1833,
+      "totalItems": 3,
+      "status": "pending",
+      "id": 11
+    },
+    {
+      "selectedAddress": {
+        "name": "Dantuluri uttejvarma ",
+        "gmail": "uttej2233@gmail.com",
+        "phone": "8985043923",
+        "street": "3-130, ASR Nagar-1, jammunarayanapuran, Vizianagaram",
+        "city": "Vizianagaram",
+        "state": "Andhra Pradesh",
+        "pincode": "535003"
+      },
+      "paymentMethod": "cash",
+      "user": {
+        "id": 1,
+        "email": "uttej2233@gmail.com",
+        "password": "Uttej2233",
+        "addresses": [
+          {
+            "name": "Dantuluri uttejvarma ",
+            "gmail": "uttej2233@gmail.com",
+            "phone": "8985043923",
+            "street": "3-130, ASR Nagar-1, jammunarayanapuran, Vizianagaram",
+            "city": "Vizianagaram",
+            "state": "Andhra Pradesh",
+            "pincode": "535003"
+          }
+        ],
+        "role": "user"
+      },
+      "items": [
+        {
+          "title": "OPPOF19",
+          "description": "OPPO F19 is officially announced on April 2021.",
+          "price": 280,
+          "discountPercentage": 17.91,
+          "rating": 4.3,
+          "stock": 123,
+          "brand": "OPPO",
+          "category": "smartphones",
+          "thumbnail": "https://i.dummyjson.com/data/products/4/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/4/1.jpg",
+            "https://i.dummyjson.com/data/products/4/2.jpg",
+            "https://i.dummyjson.com/data/products/4/3.jpg",
+            "https://i.dummyjson.com/data/products/4/4.jpg",
+            "https://i.dummyjson.com/data/products/4/thumbnail.jpg"
+          ],
+          "quantity": 3,
+          "user": 1,
+          "id": 2
+        }
+      ],
+      "totalAmount": 690,
+      "totalItems": 3,
+      "status": "pending",
+      "id": 12
+    },
+    {
+      "selectedAddress": {
+        "name": "Dantuluri uttejvarma ",
+        "gmail": "uttej2233@gmail.com",
+        "phone": "8985043923",
+        "street": "3-130, ASR Nagar-1, jammunarayanapuran, Vizianagaram",
+        "city": "Vizianagaram",
+        "state": "Andhra Pradesh",
+        "pincode": "535003"
+      },
+      "paymentMethod": "cash",
+      "user": {
+        "id": 1,
+        "email": "uttej2233@gmail.com",
+        "password": "Uttej2233",
+        "addresses": [
+          {
+            "name": "Dantuluri uttejvarma ",
+            "gmail": "uttej2233@gmail.com",
+            "phone": "8985043923",
+            "street": "3-130, ASR Nagar-1, jammunarayanapuran, Vizianagaram",
+            "city": "Vizianagaram",
+            "state": "Andhra Pradesh",
+            "pincode": "535003"
+          }
+        ],
+        "role": "user"
+      },
+      "items": [
+        {
+          "title": "Huawei P30",
+          "description": "Huawei’s re-badged P30 Pro New Edition was officially unveiled yesterday in Germany and now the device has made its way to the UK.",
+          "price": 499,
+          "discountPercentage": 10.58,
+          "rating": 4.09,
+          "stock": 32,
+          "brand": "Huawei",
+          "category": "smartphones",
+          "thumbnail": "https://i.dummyjson.com/data/products/5/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/5/1.jpg",
+            "https://i.dummyjson.com/data/products/5/2.jpg",
+            "https://i.dummyjson.com/data/products/5/3.jpg"
+          ],
+          "quantity": 4,
+          "user": 1,
+          "id": 2
+        }
+      ],
+      "totalAmount": 1784,
+      "totalItems": 4,
+      "status": "delivered",
+      "id": 13
     }
   ]
 }
