@@ -22,7 +22,7 @@ import {
   Squares2X2Icon,
 } from "@heroicons/react/20/solid";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
-import { ITEMS_PER_PAGE } from "../../../app/constants";
+import { ITEMS_PER_PAGE, discountedPrice } from "../../../app/constants";
 const oldProducts = [
   {
     id: 1,
@@ -592,10 +592,7 @@ function ProductGrid({ products }) {
                         </p>
                         <p className="text-sm font-medium text-gray-900">
                           ${" "}
-                          {Math.round(
-                            product.price *
-                              (1 - product.discountPercentage / 100)
-                          )}
+                          {discountedPrice(product)}
                         </p>
                       </div>
                     </div>
