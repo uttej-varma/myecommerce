@@ -1,6 +1,7 @@
 import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
 import { useForm } from "react-hook-form";
 import { useSelector,useDispatch } from 'react-redux';
+import Modal from '../../commonComponents/Modal';
 import {
     fetchAllCategoriesAsync,
     fetchAllBrandsAsync,
@@ -15,8 +16,9 @@ import {
     
   } from "../../product-list/productSlice";
 import { useParams } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 export function ProductForm(){
+  const [openModal,setOpenModal]=useState(false)
     const {
         register,
         handleSubmit,
@@ -63,7 +65,18 @@ function handleDeleteProduct(){
     dispatch(updateProductByIdAsync(product))
 }
     return (
-        <form
+      <>
+                   <Modal
+        title={`Delete ${selectedProduct.title}`}
+        message="Are you sure you want to delete?"
+        dangerOption="Delete"
+        cancelOption="Cancel"
+        dangerAction={ ()=>{handleDeleteProduct()}}
+        cancelAction={()=>{setOpenModal(false)}}
+        showModal={openModal}
+      ></Modal>
+      
+      <form
         noValidate
         onSubmit={handleSubmit((data)=>{
             const product={...data};
@@ -90,7 +103,8 @@ function handleDeleteProduct(){
           <div className="space-y-12 bg-white p-12">
             <div className="border-b border-gray-900/10 pb-12">
               <h2 className="text-base font-semibold leading-7 text-gray-900">Add Product</h2>
-            
+              {selectedProduct?.deleted && <h2 className="text-base font-semibold leading-7 text-red-700">This Product is deleted</h2>
+            }
               <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                 <div className="sm:col-span-6">
                   <label htmlFor="title" className="block text-sm font-medium leading-6 text-gray-900">
@@ -394,14 +408,14 @@ function handleDeleteProduct(){
               </div>
             </div>
           </div>
-    
-          <div className="mt-6 flex items-center justify-end gap-x-6">
+          
+            <div className="mt-6 flex items-center justify-end gap-x-6">
             <button type="button" className="text-sm font-semibold leading-6 text-gray-900">
               Cancel
             </button>
             {
-                (selectedProduct && params.id)?<button 
-                onClick={handleDeleteProduct}
+                (selectedProduct && params.id && !selectedProduct.deleted)?<button 
+                onClick={()=>{setOpenModal(true)}}
                 type="button" className=" rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">
                 Delete
               </button>:null
@@ -413,6 +427,11 @@ function handleDeleteProduct(){
               Save
             </button>
           </div>
+          
+    
+          
         </form>
+      </>
+      
       )
 }
