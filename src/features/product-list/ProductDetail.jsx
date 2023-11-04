@@ -2,11 +2,13 @@ import { useState,useEffect } from 'react'
 import { StarIcon } from '@heroicons/react/20/solid'
 import { RadioGroup } from '@headlessui/react'
 import { useDispatch, useSelector } from 'react-redux';
-import { selectProductById,fetchProductByIdAsync } from './productSlice';
+import { selectProductById,fetchProductByIdAsync, productListStatus } from './productSlice';
 import { useParams } from 'react-router-dom';
 import { addToCartAsync, selectItems } from '../cart/cartSlice';
 import { selectUserInfo } from '../user/userSlice';
 import { discountedPrice } from '../../app/constants';
+import { useAlert } from "react-alert";
+import { BallTriangle } from "react-loader-spinner";
 const colors=[
   { name: 'White', class: 'bg-white', selectedClass: 'ring-gray-400' },
   { name: 'Gray', class: 'bg-gray-200', selectedClass: 'ring-gray-400' },
@@ -40,6 +42,8 @@ export default function ProductDetails(){
     const items=useSelector(selectItems)
     const dispatch=useDispatch();
     const params=useParams()
+    const alert = useAlert();
+    const status=useSelector(productListStatus);
     //In Server Data we add Colors,sizes,etc.,
     useEffect(()=>{
       dispatch(fetchProductByIdAsync(params.id))
@@ -50,9 +54,11 @@ export default function ProductDetails(){
         const newItem={...product,productId:product.id,quantity:1,user:user.id}
         delete newItem['id']
         dispatch(addToCartAsync({...newItem}))
+        //TODO: sync notification with bacvkend response
+        alert.success("item added to cart");
       }
       else{
-        console.log('alreday Added')
+        alert.error("item already added");
       }
       
     }
@@ -62,6 +68,19 @@ export default function ProductDetails(){
           {product && <div className="pt-6">
         <nav aria-label="Breadcrumb">
         </nav>
+        {
+          status === "loading" ? 
+          <BallTriangle
+            height={100}
+            width={100}
+            radius={5}
+            color="rgb(79,20,229)"
+            ariaLabel="ball-triangle-loading"
+            wrapperClass={{}}
+            wrapperStyle=""
+            visible={true}
+          />:null
+        }
 
         {/* Image gallery */}
         <div className="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">

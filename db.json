@@ -37,7 +37,8 @@
         "https://i.dummyjson.com/data/products/2/3.jpg",
         "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
       ],
-      "discount": 17.94
+      "discount": 17.94,
+      "deleted": true
     },
     {
       "id": 3,
@@ -59,7 +60,7 @@
       "title": "OPPOF19",
       "description": "OPPO F19 is officially announced on April 2021.",
       "price": 280,
-      "discountPercentage": 17.91,
+      "discountPercentage": 17.99,
       "rating": 4.3,
       "stock": 123,
       "brand": "OPPO",
@@ -69,9 +70,10 @@
         "https://i.dummyjson.com/data/products/4/1.jpg",
         "https://i.dummyjson.com/data/products/4/2.jpg",
         "https://i.dummyjson.com/data/products/4/3.jpg",
-        "https://i.dummyjson.com/data/products/4/4.jpg",
-        "https://i.dummyjson.com/data/products/4/thumbnail.jpg"
-      ]
+        "https://i.dummyjson.com/data/products/4/4.jpg"
+      ],
+      "deleted": true,
+      "discount": "17.99"
     },
     {
       "id": 5,
@@ -217,7 +219,8 @@
         "https://i.dummyjson.com/data/products/12/3.png",
         "https://i.dummyjson.com/data/products/12/4.jpg",
         "https://i.dummyjson.com/data/products/12/thumbnail.jpg"
-      ]
+      ],
+      "deleted": true
     },
     {
       "id": 13,
@@ -2341,17 +2344,7 @@
       "id": 1,
       "email": "uttej2233@gmail.com",
       "password": "Uttej2233",
-      "addresses": [
-        {
-          "name": "Dantuluri uttejvarma ",
-          "gmail": "uttej2233@gmail.com",
-          "phone": "8985043923",
-          "street": "3-130, ASR Nagar-1, jammunarayanapuran, Vizianagaram",
-          "city": "Vizianagaram",
-          "state": "Andhra Pradesh",
-          "pincode": "535003"
-        }
-      ],
+      "addresses": [],
       "role": "user"
     },
     {
@@ -2364,21 +2357,23 @@
   ],
   "cart": [
     {
-      "title": "Huawei P30",
-      "description": "Huawei’s re-badged P30 Pro New Edition was officially unveiled yesterday in Germany and now the device has made its way to the UK.",
-      "price": 499,
-      "discountPercentage": 10.58,
-      "rating": 4.09,
-      "stock": 32,
-      "brand": "Huawei",
+      "title": "iPhone X",
+      "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
+      "price": 700,
+      "discountPercentage": 17.94,
+      "rating": 4.44,
+      "stock": 34,
+      "brand": "Apple",
       "category": "smartphones",
-      "thumbnail": "https://i.dummyjson.com/data/products/5/thumbnail.jpg",
+      "thumbnail": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
       "images": [
-        "https://i.dummyjson.com/data/products/5/1.jpg",
-        "https://i.dummyjson.com/data/products/5/2.jpg",
-        "https://i.dummyjson.com/data/products/5/3.jpg"
+        "https://i.dummyjson.com/data/products/2/1.jpg",
+        "https://i.dummyjson.com/data/products/2/2.jpg",
+        "https://i.dummyjson.com/data/products/2/3.jpg",
+        "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
       ],
-      "productId": 5,
+      "discount": 17.94,
+      "productId": 2,
       "quantity": 1,
       "user": 1,
       "id": 1
