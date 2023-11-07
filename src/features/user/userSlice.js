@@ -2,7 +2,6 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { fetchLoggedInUserOrders,updateUser,fetchLoggedInUser } from './userAPI';
 
 const initialState = {
-  userOrders: [],
   status: 'idle',
   userInfo:null,
 };
@@ -23,8 +22,8 @@ export const fetchLoggedInUserAsync = createAsyncThunk(
 );
 export const updateUserAsync = createAsyncThunk(
   'user/updateUserAsync',
-  async (id) => {
-    const response = await updateUser(id);
+  async (update) => {
+    const response = await updateUser(update);
     return response.data;
   }
 );
@@ -45,7 +44,7 @@ export const userReducer = createSlice({
       .addCase(fetchLoggedInUserOrdersAsync.fulfilled, (state, action) => {
         state.status = 'idle';
         ///this info can beyond the info of logged in user like address and orders etc.,
-        state.userOrders = action.payload;
+        state.userInfo.orders = action.payload;
       })
       .addCase(fetchLoggedInUserAsync.pending, (state) => {
         state.status = 'loading';
@@ -60,14 +59,13 @@ export const userReducer = createSlice({
       })
       .addCase(updateUserAsync.fulfilled, (state, action) => {
         state.status = 'idle';
-        ///this info can beyond the info of logged in user like address and orders etc.,
-        state.userInfo = action.payload;
+        state.userOrders = action.payload;
       });
   },
 });
 
 
-
-export const userOrders=(state)=>state.user.userOrders
-export const selectUserInfo=(state)=>state.user.userInfo
+//TODO : change orders and address to be independent of users
+export const userOrders=(state)=>state.user.userInfo.orders;
+export const selectUserInfo=(state)=>state.user.userInfo;
 export default userReducer.reducer;

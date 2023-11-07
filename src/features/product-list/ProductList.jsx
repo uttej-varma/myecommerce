@@ -118,7 +118,7 @@ export default function ProductList() {
   const [page, setPage] = useState(1);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchAllProductsAsync());
+    // dispatch(fetchAllProductsAsync());
     dispatch(fetchAllCategoriesAsync());
     dispatch(fetchAllBrandsAsync());
   }, []);
@@ -145,6 +145,7 @@ export default function ProductList() {
       );
       newFilter[section.id].splice(index, 1);
     }
+    console.log('new Filter',newFilter);
     setFilter(newFilter);
     // dispatch(fetchProductsByFilterAsync(newFilter));
   }
@@ -252,6 +253,7 @@ export default function ProductList() {
                   <DesktopFilter
                     handleFilter={handleFilter}
                     filters={filters}
+                    filter={filter}
                   ></DesktopFilter>
 
                   {/* Product grid */}
@@ -403,15 +405,15 @@ function MobileFilter({
     </>
   );
 }
-function DesktopFilter({ handleFilter, filters }) {
+function DesktopFilter({ handleFilter, filters,filter }) {
   return (
     <>
       <form className="hidden lg:block">
         <h3 className="sr-only">Categories</h3>
-        {filters.map((section) => (
+        {filters.map((section,index) => (
           <Disclosure
             as="div"
-            key={section.id}
+            key={index}
             className="border-b border-gray-200 py-6"
           >
             {({ open }) => (
@@ -439,7 +441,7 @@ function DesktopFilter({ handleFilter, filters }) {
                           name={`${section.id}[]`}
                           defaultValue={option.value}
                           type="checkbox"
-                          defaultChecked={option.checked}
+                         defaultChecked={filter?.category?.findIndex((val)=>val===option.value)>=0?true:false}
                           onChange={(e) => handleFilter(e, section, option)}
                           className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                         />
