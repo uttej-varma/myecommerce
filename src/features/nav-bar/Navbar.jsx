@@ -29,7 +29,7 @@ export default function Navbar({ children }) {
   const cartCount=useSelector(selectItems)
   const dispatch=useDispatch()
   const user=useSelector(selectLoggedInUser);
-  console.log('%%%%%%%',user)
+
   
   return (
     <>
@@ -190,6 +190,7 @@ export default function Navbar({ children }) {
                     </div>
                     <div className="ml-3">
                       <div className="text-base font-medium leading-none text-white">
+                        {/* this should come from userAPi */}
                         {user.name}
                       </div>
                       <div className="text-sm font-medium leading-none text-gray-400">

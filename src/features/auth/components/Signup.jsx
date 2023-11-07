@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, Navigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { selectLoggedInUser, userRegistrationAsync } from "../authSlice";
+import { selectLoggedInUser, userRegistrationAsync,selectError } from "../authSlice";
 
 export default function Signup() {
   const dispatch = useDispatch();
   const user = useSelector(selectLoggedInUser);
-  console.log("&&&&&", user);
+  const error=useSelector(selectError)
   const {
     register,
     handleSubmit,
@@ -130,7 +130,7 @@ export default function Signup() {
                   )}
                 </div>
               </div>
-
+              {error && (<p className='text-red-500'>{error.message}</p>)}
               <div>
                 <button className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                   Sign up

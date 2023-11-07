@@ -1,31 +1,47 @@
 export const createUser=(userData)=>{
-  return new Promise(async(resolve)=>{
-    const response=await fetch('http://localhost:3004/users',{
+  return new Promise(async(resolve,reject)=>{
+    const response=await fetch('http://localhost:3004/auth/signup',{
       method:'POST',
       body:JSON.stringify(userData),
       headers:{'content-type':'application/json'}
     })
-    const data=await response.json();
+    if(response.ok){
+      const data=await response.json();
     resolve({data});
+
+    }
+    else{
+      const err=await response.json();
+       reject(err)
+    }
+    
   })
 }
 
 export const checkUser=(loginInfo)=>{
   return new Promise(async(resolve,reject)=>{
-    const response=await fetch(`http://localhost:3004/users?email=${loginInfo.email}`)
-    const data=await response.json();
-    if(data.length){
-      if(loginInfo.password===data[0].password){
-        resolve({data:data[0]});
-      }
-      else{
-        reject({message:'invalid userName or password'})
-      }
-      
-    } 
-    else{
-      reject({message:'user not found'})
+   try{
+    const response=await fetch(`http://localhost:3004/auth/login`,{
+      method:'POST',
+      body:JSON.stringify(loginInfo),
+      headers:{'content-type':'application/json'}
+    })
+    if(response.ok){
+      const data=await response.json();
+    
+      resolve({data})
+
     }
+    else{
+      const err=await response.json();
+       reject(err)
+    }
+   
+   }
+   catch(e){
+    reject(e)
+   }
+   
   })
 }
 

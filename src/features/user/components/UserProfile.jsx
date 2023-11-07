@@ -3,24 +3,24 @@ import { selectUserInfo, updateUserAsync } from "../userSlice";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 export default function UserProfile() {
-  const user = useSelector(selectUserInfo);
+  const userInfo = useSelector(selectUserInfo);
   const dispatch = useDispatch();
   const [showEditForm, setShowEditForm] = useState(-1);
   function handleEdit( data, index) {
     console.log(data);
-    const newUser = { ...user, addresses: [...user.addresses] }; //for shallow copy issue
+    const newUser = { ...userInfo, addresses: [...userInfo.addresses] }; //for shallow copy issue
     newUser.addresses.splice(index, 1, data);
     dispatch(updateUserAsync(newUser));
     setShowEditForm(-1);
   }
   function handleRemove(e, index) {
-    const newUser = { ...user, addresses: [...user.addresses] }; //for shallow copy issue
+    const newUser = { ...userInfo, addresses: [...userInfo.addresses] }; //for shallow copy issue
     newUser.addresses.splice(index, 1);
     dispatch(updateUserAsync(newUser));
   }
   function handleEditForm(e, ind) {
     setShowEditForm(ind);
-    const address=user.addresses[ind];
+    const address=userInfo.addresses[ind];
     setValue('name',address.name)
     setValue('gmail',address.gmail)
     setValue('phone',address.phone)
@@ -41,14 +41,14 @@ export default function UserProfile() {
       <div>
         <div className="mx-auto mt-12 bg-white max-w-7xl px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl font-bold tracking-tight text-gray-900">
-            Name: {user.Name ? user.Name : "guest User"}
+            Name: {userInfo.Name ? userInfo.Name : "guest User"}
           </h1>
           <h3 className="text-1xl font-bold tracking-tight text-red-600">
-            email Address:{user.email ? user.email : ""}
+            email Address:{userInfo.email ? userInfo.email : ""}
           </h3>
-          {user.role==="admin" &&
+          {userInfo.role==="admin" &&
             <h3 className="text-1xl font-bold tracking-tight text-red-600">
-            role:{user.role}
+            role:{userInfo.role}
           </h3>
           }
           <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
@@ -62,7 +62,7 @@ export default function UserProfile() {
                             </button>
                           </p>
               <p className="mt-0.5 text-sm text-gray-500">Your address:</p>
-              {user.addresses.map((val, ind) => {
+              {userInfo.addresses.map((val, ind) => {
                 return (
                   <div key={ind}>
                     {showEditForm === ind && (
