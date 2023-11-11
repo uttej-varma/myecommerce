@@ -15,7 +15,7 @@ import CartPage from './pages/CartPage';
 import Checkout from './pages/Checkout';
 import ProductDetailsPage from './pages/ProductDetailsPage';
 import Protected from './features/auth/components/Protected';
-import { selectLoggedInUser } from './features/auth/authSlice';
+import { checkAuthAsync, selectLoggedInUser, selectUserChecked } from './features/auth/authSlice';
 import { fetctItemsByUserIdAsync } from './features/cart/cartSlice';
 import { PageNotFound } from './pages/404';
 import { OrderSuccessPage } from './pages/OrderSuccessPage';
@@ -32,6 +32,7 @@ import AdminProductForm from './pages/AdminProductPage';
 import AdminOrdersPage from './pages/AdminOrdersPage';
 import { positions, Provider } from "react-alert";
 import AlertTemplate from "react-alert-template-basic";
+import StripeCheckout from './pages/StripeCheckout';
 const options = {
   timeout: 5000,
   position: positions.BOTTOM_LEFT
@@ -90,6 +91,10 @@ const router = createBrowserRouter([
     element:<Protected><OrderSuccessPage></OrderSuccessPage></Protected>
   },
   {
+    path:'/stripe-checkout/',
+    element:<Protected><StripeCheckout></StripeCheckout></Protected>
+  },
+  {
     path:'/orders',
     element:<Protected><UserOrderPage></UserOrderPage></Protected>
   },
@@ -110,17 +115,25 @@ const router = createBrowserRouter([
 function App() {
   const user=useSelector(selectLoggedInUser);
   const dispatch=useDispatch();
+  const userChecked=useSelector(selectUserChecked);
+  useEffect(()=>{
+    dispatch(checkAuthAsync())
+  },[dispatch])
   useEffect(()=>{
     if(user){
-      dispatch(fetctItemsByUserIdAsync(user.id))
-      dispatch(fetchLoggedInUserAsync(user.id))
+      dispatch(fetctItemsByUserIdAsync())
+      //we can get req.user by token on backend so no need to give in front-end
+      dispatch(fetchLoggedInUserAsync())
     }
   },[dispatch,user])
   return (
     <div>
-      <Provider template={AlertTemplate} {...options}>
+      {
+        userChecked &&
+        <Provider template={AlertTemplate} {...options}>
       <RouterProvider router={router} />
       </Provider>
+      }
      
     </div>
   );

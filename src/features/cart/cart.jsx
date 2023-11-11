@@ -6,16 +6,22 @@ import {
   updateItemsAsync,
   deleteItemFromCartAsync,
   cartStatus,
+  cartLoaded,
 } from "./cartSlice";
+
 import { Dialog, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { Navigate } from "react-router-dom";
 import { discountedPrice } from "../../app/constants";
 import { BallTriangle } from "react-loader-spinner";
 import Modal from "../commonComponents/Modal";
+import { useEffect } from "react";
 export default function Cart() {
   const dispatch = useDispatch();
   const [openModal, setOpenModal] = useState(null);
+  
+       
+ 
 
   const items = useSelector(selectItems);
   const totalAmount = items.reduce(
@@ -24,6 +30,7 @@ export default function Cart() {
   );
   const totalItems = items.reduce((total, item) => item.quantity + total, 0);
   const status = useSelector(cartStatus);
+  const cartLoadedStatus=useSelector(cartLoaded);
   const handleQuantity = (e, item) => {
     dispatch(updateItemsAsync({ id:item.id, quantity: +e.target.value }));
   };
@@ -32,7 +39,7 @@ export default function Cart() {
   };
   return (
     <>
-      {items.length === 0 && <Navigate to="/" replace={true}></Navigate>}
+      {items.length === 0 && cartLoadedStatus && <Navigate to="/" replace={true}></Navigate>}
       
       <div>
         <div className="mx-auto mt-12 bg-white max-w-7xl px-4 sm:px-6 lg:px-8">

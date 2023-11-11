@@ -18,7 +18,7 @@ export const createUser=(userData)=>{
   })
 }
 
-export const checkUser=(loginInfo)=>{
+export const loginUser=(loginInfo)=>{
   return new Promise(async(resolve,reject)=>{
    try{
     const response=await fetch(`http://localhost:3004/auth/login`,{
@@ -33,7 +33,7 @@ export const checkUser=(loginInfo)=>{
 
     }
     else{
-      const err=await response.json();
+      const err=await response.text();
        reject(err)
     }
    
@@ -43,6 +43,30 @@ export const checkUser=(loginInfo)=>{
    }
    
   })
+}
+
+export const checkAuth=()=>{
+  return new Promise(async(resolve,reject)=>{
+    try{
+     const response=await fetch(`http://localhost:3004/auth/check`)
+     if(response.ok){
+       const data=await response.json();
+     
+       resolve({data})
+ 
+     }
+     else{
+       const err=await response.text();
+        reject(err)
+     }
+    
+    }
+    catch(e){
+     reject(e)
+    }
+    
+   })
+
 }
 
 export function signOut(){

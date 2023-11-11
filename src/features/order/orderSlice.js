@@ -39,6 +39,9 @@ export const orderReducer = createSlice({
   reducers: {
     increment: (state) => {
       state.value += 1;
+    },
+    currentOrderReset:(state)=>{
+      state.currentOrder=null;
     }
   },
   extraReducers: (builder) => {
@@ -76,4 +79,5 @@ export const orderReducer = createSlice({
 export const selectCurrentOrder=(state)=>state.order.currentOrder;
 export const selectTotalOrdersCount=(state)=>state.order.totalOrdersCount;
 export const selectTotalOrders=(state)=>state.order.orders;
+export const {currentOrderReset}=orderReducer.actions
 export default orderReducer.reducer;
