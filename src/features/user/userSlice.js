@@ -8,15 +8,15 @@ const initialState = {
 
 export const fetchLoggedInUserOrdersAsync = createAsyncThunk(
   'user/fetchLoggedInUserOrders',
-  async (id) => {
-    const response = await fetchLoggedInUserOrders(id);
+  async () => {
+    const response = await fetchLoggedInUserOrders();
     return response.data;
   }
 );
 export const fetchLoggedInUserAsync = createAsyncThunk(
   'user/fetchLoggedInUser',
-  async (id) => {
-    const response = await fetchLoggedInUser(id);
+  async () => {
+    const response = await fetchLoggedInUser();
     return response.data;
   }
 );
@@ -59,7 +59,7 @@ export const userReducer = createSlice({
       })
       .addCase(updateUserAsync.fulfilled, (state, action) => {
         state.status = 'idle';
-        state.userOrders = action.payload;
+        state.userInfo = action.payload;
       });
   },
 });
@@ -68,4 +68,5 @@ export const userReducer = createSlice({
 //TODO : change orders and address to be independent of users
 export const userOrders=(state)=>state.user.userInfo.orders;
 export const selectUserInfo=(state)=>state.user.userInfo;
+export const selectUserInfoStatus=(state)=>state.user.status
 export default userReducer.reducer;

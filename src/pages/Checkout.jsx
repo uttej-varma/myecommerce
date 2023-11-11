@@ -8,10 +8,7 @@ import {
 } from "../features/cart/cartSlice";
 import { Navigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import {
-  updateUserAsync,
-} from "../features/user/userSlice";
-
+import { updateUserAsync } from "../features/user/userSlice";
 import {
   createOrderAsync,
   selectCurrentOrder,
@@ -32,7 +29,7 @@ export default function Checkout() {
   );
   const totalItems = items.reduce((total, item) => item.quantity + total, 0);
   const handleQuantity = (e, item) => {
-    dispatch(updateItemsAsync({id:item.id, quantity: +e.target.value }));
+    dispatch(updateItemsAsync({ id: item.id, quantity: +e.target.value }));
   };
   const cartItemDelete = (itemId) => {
     dispatch(deleteItemFromCartAsync(itemId));
@@ -54,13 +51,14 @@ export default function Checkout() {
       const order = {
         selectedAddress,
         paymentMethod,
-        user:user.id,
+        user: user.id,
         items,
         totalAmount,
         totalItems,
         status: "pending", //Other status can be delivered or recieved
       };
       dispatch(createOrderAsync(order));
+      
       //cart should be cleared
       //redirection to be done
       //server stck should also be changed..
@@ -70,8 +68,14 @@ export default function Checkout() {
   };
   return (
     <>
-      {currentOrder && <Navigate to={`/order-successfull/${currentOrder.id}`}></Navigate>}
-      {items.length === 0 && <Navigate to="/" replace={true}></Navigate>}
+     {items.length === 0 && <Navigate to="/" replace={true}></Navigate>}
+      {currentOrder && currentOrder.paymentMethod==='cash' && (
+        <Navigate to={`/order-successfull/${currentOrder.id}`} replace={true}></Navigate>
+      )}
+       {currentOrder && currentOrder.paymentMethod==='card' && (
+        <Navigate to={`/stripe-checkout/`} replace={true}></Navigate>
+      )}
+     
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-5">
           <div className="lg:col-span-3">
@@ -346,7 +350,9 @@ export default function Checkout() {
                               <h3>
                                 <a href="#">{item.title}</a>
                               </h3>
-                              <p className="ml-4">${discountedPrice(item.product)}</p>
+                              <p className="ml-4">
+                                ${discountedPrice(item.product)}
+                              </p>
                             </div>
                             <p className="mt-1 text-sm text-gray-500">
                               {item.product.brand}

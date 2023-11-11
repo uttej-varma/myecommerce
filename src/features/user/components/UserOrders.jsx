@@ -1,19 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchLoggedInUserOrdersAsync, selectUserInfo, userOrders } from "../userSlice";
+import { fetchLoggedInUserOrdersAsync, selectUserInfo, selectUserInfoStatus, userOrders } from "../userSlice";
 import { Link } from "react-router-dom";
 import { discountedPrice } from "../../../app/constants";
+import { BallTriangle } from "react-loader-spinner";
 export default function UserOrders() {
   const dispatch = useDispatch();
   const userInfo = useSelector(selectUserInfo);
-  const [open, setOpen] = useState(true);
   const orders = useSelector(userOrders);
+  const status=useSelector(selectUserInfoStatus)
   useEffect(() => {
-    dispatch(fetchLoggedInUserOrdersAsync(userInfo.id));
+    dispatch(fetchLoggedInUserOrdersAsync());
   }, [dispatch]);
 
   return (
-    <div>
+   <>
+    {
+      orders && 
+      <div>
       {orders.map((order, ind) => {
         return (
           <div key={ind}>
@@ -111,5 +115,19 @@ export default function UserOrders() {
         );
       })}
     </div>
+    }
+    {status==='loading'?
+    <BallTriangle
+    height={100}
+    width={100}
+    radius={5}
+    color="rgb(79,20,229)"
+    ariaLabel="ball-triangle-loading"
+    wrapperClass={{}}
+    wrapperStyle=""
+    visible={true}
+    />:null}
+   </>
   );
 }
+

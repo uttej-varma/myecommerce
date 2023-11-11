@@ -113,13 +113,13 @@ export default function AdminProductList() {
   const [page, setPage] = useState(1);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchAllProductsAsync());
+    // dispatch(fetchAllProductsAsync());
     dispatch(fetchAllCategoriesAsync());
     dispatch(fetchAllBrandsAsync());
   }, []);
   useEffect(() => {
     const pagination = { _page: page, _limit: ITEMS_PER_PAGE };
-    dispatch(fetchProductsByFilterAsync({ filter, sort, pagination }));
+    dispatch(fetchProductsByFilterAsync({ filter, sort, pagination,admin:true }));
   }, [dispatch, filter, sort, page]);
   useEffect(() => {
     setPage(1);
@@ -597,6 +597,7 @@ function ProductGrid({ products }) {
                       </div>
                     </div>
                     {product.deleted?<p className=" text-sm text-red-600">Product deleted</p>:null}
+                    {product.stock===0?<p className=" text-sm text-red-600">Out of  Stock</p>:null}
                   </div>
                 </Link>
                 <div>

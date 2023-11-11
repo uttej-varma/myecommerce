@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectProductById,fetchProductByIdAsync, productListStatus } from './productSlice';
 import { useParams } from 'react-router-dom';
 import { addToCartAsync, selectItems } from '../cart/cartSlice';
-import { selectUserInfo } from '../user/userSlice';
 import { discountedPrice } from '../../app/constants';
 import { useAlert } from "react-alert";
 import { BallTriangle } from "react-loader-spinner";
@@ -37,7 +36,6 @@ function classNames(...classes) {
 export default function ProductDetails(){
     const [selectedColor, setSelectedColor] = useState(colors)
     const [selectedSize, setSelectedSize] = useState(sizes)
-    const user=useSelector(selectUserInfo)
     const product=useSelector(selectProductById)
     const items=useSelector(selectItems)
     const dispatch=useDispatch();
@@ -51,7 +49,7 @@ export default function ProductDetails(){
     const handleCart=(e)=>{
       e.preventDefault();
       if(items.findIndex(item=>item.product.id===product.id)<0){
-        const newItem={product:product.id,quantity:1,user:user.id}
+        const newItem={product:product.id,quantity:1}
         dispatch(addToCartAsync({...newItem}))
         //TODO: sync notification with bacvkend response
         alert.success("item added to cart");

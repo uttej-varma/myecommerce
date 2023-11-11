@@ -2,22 +2,35 @@ import { Link,Navigate,useParams } from "react-router-dom"
 import { useSelector,useDispatch } from "react-redux"
 import { resetCartAsync,cartReset } from "../features/cart/cartSlice"
 import { useEffect } from "react"
-import { selectUserInfo } from "../features/user/userSlice"
+import { BallTriangle } from "react-loader-spinner"
+import { currentOrderReset, selectCurrentOrder } from "../features/order/orderSlice"
 export function OrderSuccessPage(){
     const params=useParams()
-    const user = useSelector(selectUserInfo)
-    
+  
+    const currentOrder=useSelector(selectCurrentOrder)
     const dispatch=useDispatch()
     useEffect(()=>{
-         if(user && user.id){
-            dispatch(resetCartAsync(user.id))
+         
+            dispatch(resetCartAsync())
             dispatch(cartReset())
-         }
-    },[dispatch,user])
+            dispatch(currentOrderReset());
+         
+    },[dispatch])
     return(
        <>
        {!params.id && <Navigate to='/' replace={true}></Navigate>}
-         <main className="grid min-h-full place-items-center bg-white px-6 py-24 sm:py-32 lg:px-8">
+       {
+        currentOrder===''? <BallTriangle
+        height={100}
+        width={100}
+        radius={5}
+        color="rgb(79,20,229)"
+        ariaLabel="ball-triangle-loading"
+        wrapperClass={{}}
+        wrapperStyle=""
+        visible={true}
+      />:
+      <main className="grid min-h-full place-items-center bg-white px-6 py-24 sm:py-32 lg:px-8">
         <div className="text-center">
           <p className="text-base font-semibold text-indigo-600">Order Successful!</p>
           <h1 className="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">
@@ -36,6 +49,8 @@ export function OrderSuccessPage(){
           </div>
         </div>
       </main>
+       }
+         
        </> 
     )
 }

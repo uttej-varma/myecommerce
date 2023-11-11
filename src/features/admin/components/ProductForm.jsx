@@ -17,6 +17,7 @@ import {
   } from "../../product-list/productSlice";
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { useAlert } from 'react-alert';
 export function ProductForm(){
   const [openModal,setOpenModal]=useState(false)
     const {
@@ -31,6 +32,7 @@ export function ProductForm(){
   const dispatch=useDispatch();
   const selectedProduct=useSelector(selectProductById)
   const params=useParams()
+  const alert=useAlert()
   useEffect(()=>{
     if(params.id){
         dispatch(fetchProductByIdAsync(params.id))
@@ -66,15 +68,17 @@ function handleDeleteProduct(){
 }
     return (
       <>
-                   <Modal
-        title={`Delete ${selectedProduct.title}`}
-        message="Are you sure you want to delete?"
-        dangerOption="Delete"
-        cancelOption="Cancel"
-        dangerAction={ ()=>{handleDeleteProduct()}}
-        cancelAction={()=>{setOpenModal(false)}}
-        showModal={openModal}
-      ></Modal>
+     {
+      selectedProduct &&               <Modal
+      title={`Delete ${selectedProduct.title}`}
+      message="Are you sure you want to delete?"
+      dangerOption="Delete"
+      cancelOption="Cancel"
+      dangerAction={ ()=>{handleDeleteProduct()}}
+      cancelAction={()=>{setOpenModal(false)}}
+      showModal={openModal}
+    ></Modal>
+     }
       
       <form
         noValidate
@@ -93,17 +97,20 @@ function handleDeleteProduct(){
                 product.id=params.id
                 product.rating=selectedProduct.rating || 0
                 dispatch(updateProductByIdAsync(product))
+                alert.success('Product updated successfully')
 
             }
             else{
                 dispatch(addNewProductAsync(product))
+                //api pass fail to be checked
+                alert.success('Product Created')
             }
         })}
         >
           <div className="space-y-12 bg-white p-12">
             <div className="border-b border-gray-900/10 pb-12">
               <h2 className="text-base font-semibold leading-7 text-gray-900">Add Product</h2>
-              {selectedProduct?.deleted && <h2 className="text-base font-semibold leading-7 text-red-700">This Product is deleted</h2>
+              {selectedProduct && selectedProduct?.deleted && <h2 className="text-base font-semibold leading-7 text-red-700">This Product is deleted</h2>
             }
               <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                 <div className="sm:col-span-6">

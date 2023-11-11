@@ -32,6 +32,7 @@ export default function AdminOrders() {
   function handleUpdate(e, order) {
     const updatedOrder = { ...order };
     updatedOrder.status = e.target.value;
+    console.log(updatedOrder);
     dispatch(updateOrderByIdAsync(updatedOrder));
     setEditableOrderId(-1);
   }
@@ -47,7 +48,7 @@ export default function AdminOrders() {
       case "pending":
         return `bg-purple-200 text-purple-600`;
       case "dispatched":
-        return `bg-yellow-200 text-Yellow-600`;
+        return `bg-yellow-200 text-yellow-600`;
       case "delivered":
         return `bg-green-200 text-green-600`;
       case "cancelled":
@@ -113,12 +114,13 @@ export default function AdminOrders() {
                               <div className="mr-2">
                                 <img
                                   className="w-6 h-6 rounded-full"
-                                  src={item.thumbnail}
+                                  src={item.product.thumbnail}
+                                  alt="product"
                                 />
                               </div>
                               <span>
-                                {item.title}-qty:{item.quantity}-$
-                                {discountedPrice(item)}
+                                {item.product.title}-qty:{item.quantity}-$
+                                {discountedPrice(item.product)}
                               </span>
                             </div>
                           ))}
